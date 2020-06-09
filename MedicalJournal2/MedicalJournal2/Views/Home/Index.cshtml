@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MedicalJournal2.Models.Patients>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@Html.ActionLink("Доктора", "Index", "Doctors")
+@Html.ActionLink("Журнал", "Create", "Journals")
+@Html.ActionLink("Клиенты", "Index", "Patients")
+

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MedicalJournal2.Models.Journal>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Журнал</h1>
+
+<p>
+    <a asp-action="Create">Добавить новую запись</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Дата приёма
+            </th>
+            <th>
+               ФИО пациента
+            </th>
+            <th>
+                Должность врача
+            </th>
+            <th>
+                Количество
+            </th>
+            <th>
+                Номер карточки
+            </th>
+            <th>
+                ФИО врача
+            </th>
+            <th>
+                Услуги
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfReceipt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorName.PositionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardNumber.CardNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorName.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.ServiceName)
+            </td>
+            <td>
+                <a asp-action="Редактировать" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Подробнее" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Удалить" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
