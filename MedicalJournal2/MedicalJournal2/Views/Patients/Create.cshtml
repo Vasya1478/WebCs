@@ -4,41 +4,41 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Создать новую запись</h1>
 
-<h4>Patients</h4>
+<h4>Клиенты</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="CardNumber" class="control-label"></label>
+                <label asp-for="CardNumber" class="control-label">Номер карты</label>
                 <input asp-for="CardNumber" class="form-control" />
                 <span asp-validation-for="CardNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">ФИО</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
+                <label asp-for="Age" class="control-label">Возраст</label>
                 <input asp-for="Age" class="form-control" />
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
+                <label asp-for="Address" class="control-label">Адрес</label>
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="InsuranceNumber" class="control-label"></label>
+                <label asp-for="InsuranceNumber" class="control-label">Номер страховки</label>
                 <input asp-for="InsuranceNumber" class="form-control" />
                 <span asp-validation-for="InsuranceNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
+                <label asp-for="PhoneNumber" class="control-label">Номер телефона</label>
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
@@ -50,7 +50,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">К списку</a>
 </div>
 
 @section Scripts {

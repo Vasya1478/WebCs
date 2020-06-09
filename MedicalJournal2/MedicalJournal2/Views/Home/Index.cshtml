@@ -3,7 +3,13 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-@Html.ActionLink("Доктора", "Index", "Doctors")
-@Html.ActionLink("Журнал", "Create", "Journals")
-@Html.ActionLink("Клиенты", "Index", "Patients")
+
+    
+
+<div class="first">
+    <div class="second">@Html.ActionLink("Сотрудники", "Index", "Doctors")</div>
+    <div class="second">@Html.ActionLink("Журнал", "Create", "Journals")</div>
+    <div class="second">@Html.ActionLink("Клиенты", "Index", "Patients")</div>
+</div>
+
 

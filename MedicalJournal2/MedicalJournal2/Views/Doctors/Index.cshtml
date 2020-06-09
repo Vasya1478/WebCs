@@ -20,7 +20,7 @@
                    Табельный номер
                 </th>
                 <th>
-                    ФИО
+                    ФИО сотрудника
                 </th>
                 <th>
                     Номер кабинета
@@ -50,13 +50,13 @@
                     @Html.DisplayFor(modelItem => item.CabinetNumber)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Position.Id)
+                    @Html.DisplayFor(modelItem => item.Position.Position)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TimeOfReceipt.Id)
+                    @Html.DisplayFor(modelItem => item.TimeOfReceipt.TimeOfReceipt)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TypeOfService.Id)
+                    @Html.DisplayFor(modelItem => item.TypeOfService.TypeOfService)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |

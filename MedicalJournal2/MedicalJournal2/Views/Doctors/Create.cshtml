@@ -4,39 +4,39 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Добавить новую запись</h1>
 
-<h4>Doctors</h4>
+<h4>Врачи</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="EmployeeCode" class="control-label"></label>
+                <label asp-for="EmployeeCode" class="control-label">Табельный номер</label>
                 <input asp-for="EmployeeCode" class="form-control" />
                 <span asp-validation-for="EmployeeCode" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">ФИО</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PositionId" class="control-label"></label>
+                <label asp-for="PositionId" class="control-label">Должность</label>
                 <select asp-for="PositionId" class ="form-control" asp-items="ViewBag.PositionId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="CabinetNumber" class="control-label"></label>
+                <label asp-for="CabinetNumber" class="control-label">Номер кабинета</label>
                 <input asp-for="CabinetNumber" class="form-control" />
                 <span asp-validation-for="CabinetNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TimeOfReceiptId" class="control-label"></label>
+                <label asp-for="TimeOfReceiptId" class="control-label">Время приёма</label>
                 <select asp-for="TimeOfReceiptId" class ="form-control" asp-items="ViewBag.TimeOfReceiptId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="TypeOfServiceId" class="control-label"></label>
+                <label asp-for="TypeOfServiceId" class="control-label">Специализация</label>
                 <select asp-for="TypeOfServiceId" class ="form-control" asp-items="ViewBag.TypeOfServiceId"></select>
             </div>
             <div class="form-group">
@@ -47,7 +47,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">К списку</a>
 </div>
 
 @section Scripts {

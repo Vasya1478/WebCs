@@ -1,0 +1,169 @@
+create table name_of_position
+(
+id int identity(1,1) not null,
+position varchar(20),
+salary money,
+premium money,
+constraint PK_name_of_position_id primary key(id)
+)
+
+create table name_of_service
+(
+id int identity(1,1) not null,
+type_of_service varchar(50),
+constraint PK_name_of_service_id primary key(id)
+)
+
+create table schedule
+(
+id int identity(1,1) not null,
+number int,
+time_of_receipt varchar(12),
+constraint PK_schedule_id primary key(id)
+)
+
+create table doctors
+(
+id int identity(1,1) not null,
+employee_code int unique,
+name varchar(20),
+position_id int,
+cabinet_number int,
+time_of_receipt_id int,
+type_of_service_id int,
+constraint PK_doctors_id primary key(id),
+constraint FK_doctors_name_of_position foreign key(position_id)
+references name_of_position(id),
+constraint FK_doctors_schedule foreign key(time_of_receipt_id)
+references schedule(id),
+constraint FK_doctors_name_of_service foreign key(type_of_service_id)
+references name_of_service(id)
+)
+
+
+insert into schedule(number, time_of_receipt) values(1, '08.00-12.00')
+insert into schedule(number, time_of_receipt) values(1, '13.00-19.00')
+
+insert into name_of_service(type_of_service) values('Терапевтическая')
+insert into name_of_service(type_of_service) values('Хирургическая')
+insert into name_of_service(type_of_service) values('Ортопедическая')
+
+
+insert into name_of_position(position, salary, premium) values('врач-стоматолог', 27000, 2700)
+insert into name_of_position(position, salary, premium) values('ортопед', 34000, 3200)
+insert into name_of_position(position, salary, premium) values('хирург-терапевт', 30000, 3000)
+
+insert into doctors(employee_code, name, position_id, cabinet_number,time_of_receipt_id, type_of_service_id)
+values(100, 'Валиуллин Д.К.', 2, 101,2, 3)
+insert into doctors(employee_code, name, position_id, cabinet_number, time_of_receipt_id, type_of_service_id)
+values(101, 'Галимянова О.А.', 3, 102, 1, 2)
+insert into doctors(employee_code, name, position_id, cabinet_number, time_of_receipt_id, type_of_service_id)
+values(102, 'Дюкина Я.Б.', 1, 203, 1, 1)
+insert into doctors(employee_code, name, position_id, cabinet_number, time_of_receipt_id, type_of_service_id)
+values(103, 'Елизарова Е.П.', 1, 115, 1, 1)
+insert into doctors(employee_code, name, position_id, cabinet_number, time_of_receipt_id, type_of_service_id)
+values(104, 'Жуков А.Е.', 1, 120, 1, 1)
+insert into doctors(employee_code, name, position_id, cabinet_number, time_of_receipt_id, type_of_service_id)
+values(105, 'Карбышев Г.О.', 2, 214, 1, 3)
+insert into doctors(employee_code, name, position_id, cabinet_number, time_of_receipt_id, type_of_service_id)
+values(106, 'Леонидова М.Р.', 1, 224, 2, 1)
+insert into doctors(employee_code, name, position_id, cabinet_number, time_of_receipt_id, type_of_service_id)
+values(107, 'Накипов Н.Д.', 3, 315, 1, 2)
+insert into doctors(employee_code, name, position_id, cabinet_number, time_of_receipt_id, type_of_service_id)
+values(108, 'Никоненко П.С.', 2, 124, 2, 3)
+
+create table patients
+(
+id int identity(1,1) not null,
+card_number int unique,
+name varchar(20),
+age int,
+[address] varchar(50),
+insurance_number varchar(10),
+phone_number varchar(11),
+constraint PK_patients_id primary key(id),
+)
+
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(149, 'Соколов К.С.', 25, 'Калинина 34-43', 1000000000, 89000000000)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(150, 'Яковлев Н.Н.', 29, 'Маяковского 15-78', 1000000001, 89000000001)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(151, 'Павлов В.Г.', 45, 'Крисанова 34-98', 1000000002, 89000000002)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(148, 'Никаноров И.Д.', 35, 'Екатерининская 12-12', 1000000003, 89000000003)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(147, 'Гусев Н.Е.', 28, 'Островского 66-44', 1000000004, 89000000004)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(146, 'Смирнов В.Р.', 28, 'Луначарского 21-98', 1000000005, 89000000005)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(145, 'Миронов М.Л.', 19, 'Пушкина 87-94', 1000000006, 89000000006)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(144, 'Зайцев А.О.', 70, 'Дзержинского 43-12', 1000000007, 89000000007)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(143, 'Ковалев В.В.', 56, 'Танкистов 45-63', 1000000008, 89000000008)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(142, 'Медведев А.Н.', 37, 'Ш.Космонавтов 120-32', 1000000009, 89000000009)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(141, 'Фролов Г.Г.', 23, 'Уральская 70-65', 1000000010, 89000000010)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(140, 'Виноградов П.Д.', 25, 'Грибоедова 13-23', 1000000011, 89000000011)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(152, 'Данилов В.Б.', 44, 'Революции 5-13', 1000000012, 89000000012)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(153, 'Мельников В.Р.', 31, 'Плеханова 51-14', 1000000013, 89000000013)
+insert into patients(card_number, name, age, address, insurance_number, phone_number)
+values(154, 'тимофеев А.К.', 20, 'Комсомольская 23-75', 1000000014, 89000000014)
+
+create table [services] 
+(
+id int identity(1, 1) not null,
+number int unique not null,
+service_name varchar(100),
+type_of_service_id int,
+price money,
+discount int,
+constraint PK_services_id primary key(id),
+constraint FK_services_name_of_service foreign key(type_of_service_id)
+references name_of_service(id)
+)
+
+insert into [services](number, [service_name], type_of_service_id, price, discount)
+values(1, 'Лечение однокорневого пульпита', 1, 1250, 3)
+insert into [services](number, [service_name], type_of_service_id, price, discount)
+values(2, 'Лечение двухкорневого пульпита', 1, 1650, 1)
+insert into [services](number, [service_name], type_of_service_id, price, discount)
+values(3, 'Лечение трехкорневого пульпита', 1, 2000, 0)
+insert into [services](number, [service_name], type_of_service_id, price, discount)
+values(4, 'Лечение кариеса', 1, 500, 5)
+insert into [services](number, [service_name], type_of_service_id, price, discount)
+values(5, 'Светополимерная композитная пломба', 1, 350, 0)
+insert into [services](number, [service_name], type_of_service_id, price, discount)
+values(6, 'Лечение периодонтита', 1, 1500, 5)
+insert into [services](number, [service_name], type_of_service_id, price, discount)
+values(7, 'Удаление зубного камня', 2, 60, 0)
+insert into [services](number, [service_name], type_of_service_id, price, discount)
+values(8, 'Чистка всех зубов одной челюсти', 2, 800, 0)
+insert into [services](number, [service_name], type_of_service_id, price, discount)
+values(9, 'Профессиональное отбеливание', 2, 300, 3)
+insert into [services](number, [service_name], type_of_service_id, price, discount)
+values(10, 'Удаление зуба', 2, 150, 0)
+
+create table journal
+(
+id int identity(1,1) not null,
+date_of_receipt datetime,
+card_number_id int,
+patient_name varchar(20),
+doctor_name_id int,
+doctor_post int,
+service_id int,
+quantity int,
+constraint PK_journal_id primary key(id),
+constraint FK_journal_patient foreign key(card_number_id)
+references patients(id),
+constraint FK_journal_doctors_name foreign key(doctor_name_id)
+references doctors(id),
+constraint FK_journal_services foreign key(service_id)
+references [services](id)
+)
